@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Processing Page</title>
+</head>
+<body>
+    <h1>Welcome to the Text Processing Page</h1>
+
+    <!-- Form that submits to the current route ('/') -->
+    <form action="/trigram" method="POST">
+        <label for="input">Enter the text you want to process:</label>
+        <input type="text" id="input" name="input" required>
+        <button type="submit">Generate Trigram</button>
+    </form>
+
+    <!-- Display the bigrams after form submission -->
+    {% if tri %}
+        <h2>Generated Trigram</h2>
+        <ul>
+            {% for trigram in tri %}
+                <li>{{ trigram[0] }} - {{ trigram[1] }} - {{ trigram[2] }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+</body>
+</html>

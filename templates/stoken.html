@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <title>Sentence Tokenization</title>
+    </head>
+    <body>
+        <h1>You are on the text procesing page :</h1>
+        <form action='/stoken' method="POST">
+        <label for="input">Enter you text here:</label>
+        <textarea name="input" id="input" rows="10" cols="50" placeholder="Enter your paragraph here" required></textarea>
+        <button type='submit'>Gnerate Tokens</button>
+        </form>
+    {% if token %}
+        <h2>Tokenized Words:</h2>
+        <ul>
+            {% for word in token %}
+                <li>{{ word }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    </body>
+</html>

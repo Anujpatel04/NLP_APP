@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sentence Tokenization</title>
+</head>
+<body>
+    <h1>You are on the text processing page:</h1>
+    <form action="/swords" method="POST">
+        <button type="submit">Generate Stop Words</button>
+    </form>
+    
+    {% if sp %}
+        <h2>Stop Words:</h2>
+        <ul>
+            {% for word in sp %}
+                <li>{{ word }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>

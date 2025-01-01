@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TF and BoW Vectorization</title>
+</head>
+<body>
+    <h1>Term Frequency (TF) and Bag of Words (BoW) Representation</h1>
+
+    <!-- Form for Input -->
+    <form action='/tfvector' method="POST">
+        <label for="input">Enter your text here:</label>
+        <textarea name="input" id="input" rows="10" cols="50" placeholder="Enter your paragraph here" required></textarea>
+        <button type='submit'>Generate Numbers</button>
+    </form>
+
+    {% if X_bow %}
+    <h2>Bag of Words Model (BoW)</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Document</th>
+                {% for word in vocab %}
+                    <th>{{ word }}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in range(X_bow|length) %}
+                <tr>
+                    <td>Document {{ i + 1 }}</td>
+                    {% for value in X_bow[i] %}
+                        <td>{{ value }}</td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endif %}
+
+    {% if X_tf %}
+    <h2>TF-IDF Model</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Document</th>
+                {% for word in vocab %}
+                    <th>{{ word }}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in range(X_tf|length) %}
+                <tr>
+                    <td>Document {{ i + 1 }}</td>
+                    {% for value in X_tf[i] %}
+                        <td>{{ value }}</td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endif %}
+</body>
+</html>
